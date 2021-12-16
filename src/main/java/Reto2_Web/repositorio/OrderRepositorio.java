@@ -34,4 +34,7 @@ public class OrderRepositorio {
     public Optional<Order> lastUserId(){
         return interfaceOrder.findTopByOrderByIdDesc();
     }
+    public List<Order>findByZone(String zona){
+        return interfaceOrder.findByZone(zona);
+    }
 }
