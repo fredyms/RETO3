@@ -6,19 +6,19 @@ package Reto2_Web.repositorio;
 
 import Reto2_Web.interfaces.InterfaceClothe;
 import Reto2_Web.modelo.Clothe;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 /**
- *
  * @author USUARIO
  */
 @Repository
+@AllArgsConstructor
 public class ClotheRepositorio {
-    @Autowired
+
     private InterfaceClothe repository;
 
     public List<Clothe> getAll() {
@@ -29,6 +29,7 @@ public class ClotheRepositorio {
 
         return repository.findById(reference);
     }
+
     public Clothe create(Clothe clothe) {
 
         return repository.save(clothe);
@@ -38,7 +39,7 @@ public class ClotheRepositorio {
 
         repository.save(clothe);
     }
-    
+
     public void delete(Clothe clothe) {
 
         repository.delete(clothe);

@@ -1,14 +1,13 @@
 package Reto2_Web.interfaces;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import Reto2_Web.modelo.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import Reto2_Web.modelo.Order;
+
 import java.util.List;
 import java.util.Optional;
 
 /**
- *
  * @author fredy
  */
 public interface InterfaceOrder extends MongoRepository<Order, Integer> {
@@ -23,7 +22,6 @@ public interface InterfaceOrder extends MongoRepository<Order, Integer> {
 
     //Para seleccionar la orden con el id maximo
     Optional<Order> findTopByOrderByIdDesc();
-
 
 
 }

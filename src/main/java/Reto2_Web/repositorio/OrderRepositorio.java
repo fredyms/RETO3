@@ -1,15 +1,18 @@
 package Reto2_Web.repositorio;
-import Reto2_Web.modelo.Order;
+
 import Reto2_Web.interfaces.InterfaceOrder;
-import org.springframework.beans.factory.annotation.Autowired;
+import Reto2_Web.modelo.Order;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 
 @Repository
+@AllArgsConstructor
 public class OrderRepositorio {
 
-    @Autowired
+
     private InterfaceOrder interfaceOrder;
 
     public List<Order> getAll() {
@@ -28,13 +31,15 @@ public class OrderRepositorio {
         interfaceOrder.save(order);
     }
 
-    public void delete(Order order) {interfaceOrder.delete(order);
+    public void delete(Order order) {
+        interfaceOrder.delete(order);
     }
 
-    public Optional<Order> lastUserId(){
+    public Optional<Order> lastUserId() {
         return interfaceOrder.findTopByOrderByIdDesc();
     }
-    public List<Order>findByZone(String zona){
+
+    public List<Order> findByZone(String zona) {
         return interfaceOrder.findByZone(zona);
     }
 }

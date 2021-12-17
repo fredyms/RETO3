@@ -18,22 +18,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Reto2WebApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Reto2WebApplication.class, args);
-	}
-	@Autowired
-	private InterfaceUser userRepository;
-	@Autowired
-	private InterfaceClothe clotheRepository;
-	@Autowired
-	private InterfaceOrder orderRepository;
+    @Autowired
+    private InterfaceUser userRepository;
+    @Autowired
+    private InterfaceClothe clotheRepository;
+    @Autowired
+    private InterfaceOrder orderRepository;
 
-	@Override
-	public void run(String... args) throws Exception {
-		userRepository.deleteAll();
-		clotheRepository.deleteAll();
-		orderRepository.deleteAll();
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Reto2WebApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        userRepository.deleteAll();
+        clotheRepository.deleteAll();
+        orderRepository.deleteAll();
+    }
 
 
 }

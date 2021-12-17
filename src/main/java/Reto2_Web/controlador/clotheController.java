@@ -6,38 +6,29 @@ package Reto2_Web.controlador;
 
 import Reto2_Web.modelo.Clothe;
 import Reto2_Web.servicio.ClotheService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
  * @author USUARIO
  */
 @RestController
 @RequestMapping("/api/clothe")
 @CrossOrigin("*")
+@AllArgsConstructor
 public class ClotheController {
-       @Autowired
+
     private ClotheService accessoryService;
-       
-     @GetMapping("/all")
+
+    @GetMapping("/all")
     public List<Clothe> getAll() {
         return accessoryService.getAll();
     }
-    
+
     @GetMapping("/{reference}")
     public Optional<Clothe> getClothe(@PathVariable("reference") String reference) {
         return accessoryService.getClothe(reference);
@@ -48,7 +39,7 @@ public class ClotheController {
     public Clothe create(@RequestBody Clothe gadget) {
         return accessoryService.create(gadget);
     }
-    
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Clothe update(@RequestBody Clothe gadget) {
@@ -59,6 +50,6 @@ public class ClotheController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("reference") String reference) {
         return accessoryService.delete(reference);
-    } 
-    
+    }
+
 }

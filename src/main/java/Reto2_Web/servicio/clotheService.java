@@ -6,25 +6,26 @@ package Reto2_Web.servicio;
 
 import Reto2_Web.modelo.Clothe;
 import Reto2_Web.repositorio.ClotheRepositorio;
-import java.util.List;
-import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
- *
  * @author USUARIO
  */
 @Service
+@AllArgsConstructor
 public class ClotheService {
-     @Autowired
+
     private ClotheRepositorio clotheRepository;
 
     public List<Clothe> getAll() {
         return clotheRepository.getAll();
     }
 
-   public Optional<Clothe> getClothe(String reference) {
+    public Optional<Clothe> getClothe(String reference) {
         return clotheRepository.getClothe(reference);
     }
 
@@ -41,11 +42,11 @@ public class ClotheService {
         if (accesory.getReference() != null) {
             Optional<Clothe> accesoryDb = clotheRepository.getClothe(accesory.getReference());
             if (!accesoryDb.isEmpty()) {
-                
-                if (accesory.getReference()!= null) {
+
+                if (accesory.getReference() != null) {
                     accesoryDb.get().setReference(accesory.getReference());
                 }
-                
+
                 if (accesory.getCategory() != null) {
                     accesoryDb.get().setCategory(accesory.getCategory());
                 }
@@ -84,6 +85,6 @@ public class ClotheService {
         }).orElse(false);
         return aBoolean;
     }
-    
-    
+
+
 }

@@ -6,18 +6,19 @@ package Reto2_Web.servicio;
 
 import Reto2_Web.modelo.User;
 import Reto2_Web.repositorio.UserRepositorio;
-import java.util.List;
-import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
- *
  * @author USUARIO
  */
 @Service
+@AllArgsConstructor
 public class UserService {
-     @Autowired
+
     private UserRepositorio userRepository;
 
     public List<User> getAll() {
@@ -25,24 +26,24 @@ public class UserService {
     }
 
     public Optional<User> getUser(int id) {
-        
+
         return userRepository.getUser(id);
     }
 
     public User create(User user) {
         if (user.getId() == null) {
-            return user;            
-        }else {
+            return user;
+        } else {
             Optional<User> e = userRepository.getUser(user.getId());
             if (e.isEmpty()) {
-                if (emailExists(user.getEmail())==false){
+                if (emailExists(user.getEmail()) == false) {
                     return userRepository.create(user);
-                }else{
+                } else {
                     return user;
                 }
-            }else{
+            } else {
                 return user;
-            }           
+            }
         }
     }
 
@@ -72,7 +73,7 @@ public class UserService {
                 if (user.getZone() != null) {
                     userDb.get().setZone(user.getZone());
                 }
-                
+
                 userRepository.update(userDb.get());
                 return userDb.get();
             } else {
@@ -82,7 +83,7 @@ public class UserService {
             return user;
         }
     }
-    
+
     public boolean delete(int userId) {
         Boolean aBoolean = getUser(userId).map(user -> {
             userRepository.delete(user);
@@ -90,7 +91,7 @@ public class UserService {
         }).orElse(false);
         return aBoolean;
     }
-    
+
     public boolean emailExists(String email) {
         return userRepository.emailExists(email);
     }
@@ -104,5 +105,5 @@ public class UserService {
             return usuario.get();
         }
     }
-    
+
 }

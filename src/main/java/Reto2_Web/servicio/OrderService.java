@@ -2,16 +2,17 @@ package Reto2_Web.servicio;
 
 import Reto2_Web.modelo.Order;
 import Reto2_Web.repositorio.OrderRepositorio;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class OrderService {
 
-    @Autowired
+
     private OrderRepositorio orderRepositorio;
 
     public List<Order> getAll() {
@@ -40,7 +41,7 @@ public class OrderService {
         Optional<Order> e = orderRepositorio.getOrder(order.getId());
         if (e.isEmpty()) {
             return orderRepositorio.create(order);
-        }else{
+        } else {
             return order;
         }
     }
@@ -71,7 +72,7 @@ public class OrderService {
         return aBoolean;
     }
 
-    public List<Order>findByZone(String zona){
+    public List<Order> findByZone(String zona) {
         return orderRepositorio.findByZone(zona);
     }
 }

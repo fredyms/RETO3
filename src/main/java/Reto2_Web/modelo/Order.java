@@ -1,17 +1,16 @@
 package Reto2_Web.modelo;
 
 
-
-import java.util.Date;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
+import java.util.Date;
+import java.util.Map;
 
+/**
  * @author fredy
  */
 @Document(collection = "orders")

@@ -9,9 +9,8 @@ import Reto2_Web.modelo.Clothe;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
- *
  * @author USUARIO
  */
 public interface InterfaceClothe extends MongoRepository<Clothe, String> {
-    
+
 }

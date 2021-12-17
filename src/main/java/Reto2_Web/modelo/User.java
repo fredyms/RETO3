@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 /**
- *
  * @author USUARIO
  */
 @Document(collection = "usuarios")
@@ -33,5 +32,5 @@ public class User {
     private String password;
     private String zone;
     private String type;
-    
+
 }
