@@ -5,7 +5,8 @@
 package Reto2_Web.repositorio;
 
 import Reto2_Web.interfaces.InterfaceClothe;
-import Reto2_Web.modelo.clothe;
+import Reto2_Web.modelo.Clothe;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +21,25 @@ public class ClotheRepositorio {
     @Autowired
     private InterfaceClothe repository;
 
-    public List<clothe> getAll() {
+    public List<Clothe> getAll() {
         return repository.findAll();
     }
 
-    public Optional<clothe> getClothe(String reference) {
+    public Optional<Clothe> getClothe(String reference) {
 
         return repository.findById(reference);
     }
-    public clothe create(clothe clothe) {
+    public Clothe create(Clothe clothe) {
 
         return repository.save(clothe);
     }
 
-    public void update(clothe clothe) {
+    public void update(Clothe clothe) {
 
         repository.save(clothe);
     }
     
-    public void delete(clothe clothe) {
+    public void delete(Clothe clothe) {
 
         repository.delete(clothe);
     }

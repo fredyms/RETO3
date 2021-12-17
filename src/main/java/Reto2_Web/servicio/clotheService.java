@@ -4,7 +4,7 @@
  */
 package Reto2_Web.servicio;
 
-import Reto2_Web.modelo.clothe;
+import Reto2_Web.modelo.Clothe;
 import Reto2_Web.repositorio.ClotheRepositorio;
 import java.util.List;
 import java.util.Optional;
@@ -16,19 +16,19 @@ import org.springframework.stereotype.Service;
  * @author USUARIO
  */
 @Service
-public class clotheService {
+public class ClotheService {
      @Autowired
     private ClotheRepositorio clotheRepository;
 
-    public List<clothe> getAll() {
+    public List<Clothe> getAll() {
         return clotheRepository.getAll();
     }
 
-   public Optional<clothe> getClothe(String reference) {
+   public Optional<Clothe> getClothe(String reference) {
         return clotheRepository.getClothe(reference);
     }
 
-    public clothe create(clothe accesory) {
+    public Clothe create(Clothe accesory) {
         if (accesory.getReference() == null) {
             return accesory;
         } else {
@@ -36,10 +36,10 @@ public class clotheService {
         }
     }
 
-    public clothe update(clothe accesory) {
+    public Clothe update(Clothe accesory) {
 
         if (accesory.getReference() != null) {
-            Optional<clothe> accesoryDb = clotheRepository.getClothe(accesory.getReference());
+            Optional<Clothe> accesoryDb = clotheRepository.getClothe(accesory.getReference());
             if (!accesoryDb.isEmpty()) {
                 
                 if (accesory.getReference()!= null) {

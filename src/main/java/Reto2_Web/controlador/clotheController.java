@@ -4,8 +4,9 @@
  */
 package Reto2_Web.controlador;
 
-import Reto2_Web.servicio.clotheService;
-import Reto2_Web.modelo.clothe;
+import Reto2_Web.modelo.Clothe;
+import Reto2_Web.servicio.ClotheService;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,29 +29,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/clothe")
 @CrossOrigin("*")
-public class clotheController {
+public class ClotheController {
        @Autowired
-    private clotheService accessoryService;
+    private ClotheService accessoryService;
        
      @GetMapping("/all")
-    public List<clothe> getAll() {
+    public List<Clothe> getAll() {
         return accessoryService.getAll();
     }
     
     @GetMapping("/{reference}")
-    public Optional<clothe> getClothe(@PathVariable("reference") String reference) {
+    public Optional<Clothe> getClothe(@PathVariable("reference") String reference) {
         return accessoryService.getClothe(reference);
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public clothe create(@RequestBody clothe gadget) {
+    public Clothe create(@RequestBody Clothe gadget) {
         return accessoryService.create(gadget);
     }
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public clothe update(@RequestBody clothe gadget) {
+    public Clothe update(@RequestBody Clothe gadget) {
         return accessoryService.update(gadget);
     }
 

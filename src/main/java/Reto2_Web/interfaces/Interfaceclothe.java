@@ -5,13 +5,13 @@
 package Reto2_Web.interfaces;
 
 
-import Reto2_Web.modelo.clothe;
+import Reto2_Web.modelo.Clothe;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
  * @author USUARIO
  */
-public interface InterfaceClothe extends MongoRepository<clothe, String> {
+public interface InterfaceClothe extends MongoRepository<Clothe, String> {
     
 }

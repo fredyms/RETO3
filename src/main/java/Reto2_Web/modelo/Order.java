@@ -29,6 +29,6 @@ public class Order {
     private String status;
     private User salesMan;
 
-    private Map<String, clothe> products;
+    private Map<String, Clothe> products;
     private Map<String, Integer> quantities;
 }

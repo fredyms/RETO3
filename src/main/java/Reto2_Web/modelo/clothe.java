@@ -14,11 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  * @author USUARIO
  */
-@Document(collection = "clothe")
+@Document(collection = "Clothe")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class clothe {
+public class Clothe {
     @Id
     private String reference;
 
