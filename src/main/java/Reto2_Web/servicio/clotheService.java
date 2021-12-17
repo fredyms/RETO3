@@ -5,7 +5,7 @@
 package Reto2_Web.servicio;
 
 import Reto2_Web.modelo.clothe;
-import Reto2_Web.repositorio.clotheRepositorio;
+import Reto2_Web.repositorio.ClotheRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class clotheService {
      @Autowired
-    private clotheRepositorio clotheRepository;
+    private ClotheRepositorio clotheRepository;
 
     public List<clothe> getAll() {
         return clotheRepository.getAll();

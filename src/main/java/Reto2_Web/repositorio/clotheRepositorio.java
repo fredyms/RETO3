@@ -4,7 +4,7 @@
  */
 package Reto2_Web.repositorio;
 
-import Reto2_Web.interfaces.Interfaceclothe;
+import Reto2_Web.interfaces.InterfaceClothe;
 import Reto2_Web.modelo.clothe;
 import java.util.List;
 import java.util.Optional;
@@ -16,9 +16,9 @@ import org.springframework.stereotype.Repository;
  * @author USUARIO
  */
 @Repository
-public class clotheRepositorio {
+public class ClotheRepositorio {
     @Autowired
-    private Interfaceclothe repository;
+    private InterfaceClothe repository;
 
     public List<clothe> getAll() {
         return repository.findAll();

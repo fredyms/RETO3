@@ -12,6 +12,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  *
  * @author USUARIO
  */
-public interface Interfaceclothe extends MongoRepository<clothe, String> {
+public interface InterfaceClothe extends MongoRepository<clothe, String> {
     
 }
